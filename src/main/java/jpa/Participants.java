@@ -1,17 +1,33 @@
 package jpa;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Participants {
+@DiscriminatorValue("P")
+public class Participants extends Personne {
 
 	private String nom;
 	private String prenom;
+    private Sondage sondage;
+
 
 	private String mail;
 	private String alergie;
 	private String aliment;
+	
+    private Reunion reunion;
+    
+    @ManyToOne
+	public Reunion getReunion() {
+		return reunion;
+	}
+
+	public void setReunion(Reunion reunion) {
+		this.reunion = reunion;
+	}
 
 	public String getNom() {
 		return nom;
@@ -52,6 +68,14 @@ public class Participants {
 
 	public void setAliment(String aliment) {
 		this.aliment = aliment;
+	}
+	@ManyToOne
+	public Sondage getSondage() {
+		return sondage;
+	}
+
+	public void setSondage(Sondage sondage) {
+		this.sondage = sondage;
 	}
 
 }
