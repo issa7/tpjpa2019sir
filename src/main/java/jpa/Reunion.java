@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Reunion {
@@ -14,8 +15,10 @@ public class Reunion {
 	private String intitule;
 	private String resume;
 	private List<Participants> participant = new ArrayList<Participants>();
+	private User user ;
 	
-	
+
+
 	@Id
 	@GeneratedValue
 	public Long getId() {
@@ -45,6 +48,13 @@ public class Reunion {
 		this.participant = participant;
 	}
 
-	
+	@OneToOne(mappedBy="reunion")
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 }
