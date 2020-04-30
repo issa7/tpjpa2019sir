@@ -1,4 +1,7 @@
-package jpa;
+package domain;
+
+import domain.Createur;
+import domain.Participants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 @Entity
 public class Reunion {
@@ -15,7 +19,7 @@ public class Reunion {
 	private String intitule;
 	private String resume;
 	private List<Participants> participant = new ArrayList<Participants>();
-	private User user ;
+	private Createur user ;
 	
 
 
@@ -34,13 +38,15 @@ public class Reunion {
 	public void setIntitule(String intitule) {
 		this.intitule = intitule;
 	}
+	@Transient
 	public String getResume() {
 		return resume;
 	}
 	public void setResume(String resume) {
 		this.resume = resume;
 	}
-	@OneToMany(mappedBy="reunion")
+//	@OneToMany(mappedBy="reunion")
+	@Transient
 	public List<Participants> getParticipant() {
 		return participant;
 	}
@@ -48,12 +54,13 @@ public class Reunion {
 		this.participant = participant;
 	}
 
-	@OneToOne(mappedBy="reunion")
-	public User getUser() {
+//	@OneToOne(mappedBy="reunion")
+	@Transient
+	public Createur getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(Createur user) {
 		this.user = user;
 	}
 
