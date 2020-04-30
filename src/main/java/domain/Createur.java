@@ -1,13 +1,16 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
@@ -15,50 +18,33 @@ import javax.persistence.Transient;
 @Entity
 @DiscriminatorValue("createur")
 public class Createur extends Personne {
-    
-	private Long id; 
+	private String mail;
 	
-	private List<Sondage> sondage;
+
 	
-	private List <Reunion>  reunion;
-	
-	
-public Createur(List<Sondage> sondage, List<Reunion> reunion) {
+	private Collection<Sondage> sondage = new ArrayList<Sondage>();
+
+	public Createur(List<Sondage> sondage) {
 		super();
 		this.sondage = sondage;
-		this.reunion = reunion;
-	}
-//	/* cette relation est le proprietaire car il contient la clé etrangère le nom de 
-//	 * l'assiation est createurReunion*/
-//	@OneToMany(mappedBy = "createurReunion",cascade = CascadeType.PERSIST)
-   @Transient
-	public List<Reunion> getReunion() {
-		return reunion;
-	}
-	public void setReunion(List<Reunion> reunion) {
-		this.reunion = reunion;
+
 	}
 	@Id
-	@GeneratedValue
-	public Long getId() {
-		return id;
+	public String getMail() {
+		return mail;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+
+	public void setMail(String mail) {
+		this.mail = mail;
 	}
-//	/* cette relation est le proprietaire car il contient la clé etrangère le nom de 
-//	 * l'assiation est createur*/
-//   @OneToMany(mappedBy = "createur",cascade = CascadeType.PERSIST)
-	@Transient
-	public List<Sondage> getSondage() {
+	@OneToMany(mappedBy = "createur",cascade = CascadeType.PERSIST)
+	public Collection<Sondage> getSondage() {
 		return sondage;
 	}
 
-	public void setSondage(List<Sondage> sondage) {
+	public void setSondage(Collection<Sondage> sondage) {
 		this.sondage = sondage;
 	}
 
 }
-
-

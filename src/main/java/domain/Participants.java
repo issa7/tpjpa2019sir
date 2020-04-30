@@ -2,10 +2,12 @@ package domain;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
 @Entity
@@ -39,21 +41,21 @@ public class Participants extends Personne {
 	public void setSondage(List<Sondage> sondage) {
 		this.sondage = sondage;
 	}
-	@Transient
+	@OneToMany(mappedBy="participant", cascade = CascadeType.PERSIST)
 	public List<ChoixParticipants> getChoix() {
 		return choix;
 	}
 	public void setChoix(List<ChoixParticipants> choix) {
 		this.choix = choix;
 	}
-	@Transient
+	@OneToMany(mappedBy = "participant",cascade = CascadeType.PERSIST)
 	public List<Alimentation> getPreferenceAliment() {
 		return PreferenceAliment;
 	}
 	public void setPreferenceAliment(List<Alimentation> preferenceAliment) {
 		PreferenceAliment = preferenceAliment;
 	}
-	@Transient
+	@OneToMany(mappedBy="participant", cascade = CascadeType.PERSIST)
 	public List<Allergies> getAllergie() {
 		return allergie;
 	}

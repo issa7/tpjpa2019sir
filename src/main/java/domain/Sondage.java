@@ -9,9 +9,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
@@ -27,10 +31,7 @@ public class Sondage {
 	private List<PropositionDate> dates = new ArrayList<PropositionDate>();
 	private List<Participants> participants = new ArrayList<Participants>();
 	private Createur utilisateur;
-	private Reunion reunion;
-    private ResultatSondage resultatSondage;
-	
-
+   
 	public Sondage(String nomSondage, List<PropositionDate> dates) {
 		this.nomSondage = nomSondage;
 		this.dates = dates;
@@ -56,28 +57,13 @@ public class Sondage {
 //	public void setDatesProposes(List<Date> datesProposes) {
 //		this.dates = datesProposes;
 //	}
-	@Transient
-	public ResultatSondage getResultatSondage() {
-		return resultatSondage;
-	}
-
-	public void setResultatSondage(ResultatSondage resultatSondage) {
-		this.resultatSondage = resultatSondage;
-	}
+	
 	public String getNomSondage() {
 		return nomSondage;
 	}
 
 	public void setNomSondage(String nomSondage) {
 		this.nomSondage = nomSondage;
-	}
-@Transient
-	public Reunion getReunion() {
-		return reunion;
-	}
-
-	public void setReunion(Reunion reunion) {
-		this.reunion = reunion;
 	}
 
 //	@OneToMany(mappedBy = "sondage")
@@ -90,8 +76,7 @@ public class Sondage {
 		this.participants = participants;
 	}
 
-//	@OneToMany(mappedBy = "sondages")
-	@Transient
+	@OneToMany(mappedBy = "sondages",cascade = CascadeType.PERSIST)
 	public List<PropositionDate> getDates() {
 		return dates;
 	}
@@ -100,8 +85,10 @@ public class Sondage {
 		this.dates = dates;
 	}
 
-//	@OneToOne
-	@Transient
+/*lazy permet de recuperer les donnée si cela est necessaire
+	 * les associations se termine par one ont besoin de Lazy*/
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "createur_id")
 	public Createur getUtilisateur() {
 		return utilisateur;
 	}

@@ -7,8 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
@@ -19,7 +22,7 @@ public class Reunion {
 	private String intitule;
 	private String resume;
 	private List<Participants> participant = new ArrayList<Participants>();
-	private Createur user ;
+	private Sondage sondage;
 	
 
 
@@ -54,14 +57,13 @@ public class Reunion {
 		this.participant = participant;
 	}
 
-//	@OneToOne(mappedBy="reunion")
-	@Transient
-	public Createur getUser() {
-		return user;
+	 @OneToOne(fetch=FetchType.LAZY)
+	  @JoinColumn(name="SondageID")
+	public Sondage getSondage() {
+		return sondage;
 	}
 
-	public void setUser(Createur user) {
-		this.user = user;
+	public void setSondage(Sondage sondage) {
+		this.sondage = sondage;
 	}
-
 }

@@ -38,11 +38,9 @@ public class Alimentation {
 	public void setLibellePreferenceAlimentation(String libellePreferenceAlimentation) {
 		LibellePreferenceAlimentation = libellePreferenceAlimentation;
 	}
-//	/*lazy permet de recuperer les donnée si cela est necessaire
-//	 * les associations se termine par one ont besoin de Lazy*/
-//	@ManyToOne(fetch = FetchType.LAZY)
-//	@JoinColumn(name = "participant_id")
-	@Transient
+	/*lazy permet de recuperer les donnée si cela est necessaire
+	 * les associations se termine par one ont besoin de Lazy*/
+	@ManyToOne
 	public Participants getParticipant() {
 		return participant;
 	}
