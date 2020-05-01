@@ -38,7 +38,7 @@ public class ChoixParticipants {
 	public void setChoix(Date choix) {
 		this.choix = choix;
 	}
-	@Transient
+	@ManyToOne
 	public PropositionDate getPropo() {
 		return propo;
 	}

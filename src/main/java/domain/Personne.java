@@ -9,11 +9,8 @@ import javax.persistence.MappedSuperclass;
 
 
 @MappedSuperclass
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public abstract class Personne {
 	@Id
-	@GeneratedValue
 	private Long id;
-	private String nom;
-	private String prenom;
+	
 }

@@ -6,6 +6,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
@@ -15,6 +17,10 @@ import javax.persistence.Transient;
 public class Participants extends Personne {
 	
 	private String mail;
+	private String nom;
+	private String prenom;
+	private String Motpass;
+	
 	private List<Sondage> sondage;
 	private List<ChoixParticipants> choix;
 	private List<Alimentation>PreferenceAliment;
@@ -34,7 +40,7 @@ public class Participants extends Personne {
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
-	@Transient
+	@ManyToMany
 	public List<Sondage> getSondage() {
 		return sondage;
 	}
@@ -62,6 +68,23 @@ public class Participants extends Personne {
 	public void setAllergie(List<Allergies> allergie) {
 		this.allergie = allergie;
 	}
-	
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	public String getPrenom() {
+		return prenom;
+	}
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+	public String getMotpass() {
+		return Motpass;
+	}
+	public void setMotpass(String motpass) {
+		Motpass = motpass;
+	}
 	
 }

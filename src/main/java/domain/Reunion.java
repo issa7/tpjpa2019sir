@@ -21,7 +21,6 @@ public class Reunion {
 	private Long id;
 	private String intitule;
 	private String resume;
-	private List<Participants> participant = new ArrayList<Participants>();
 	private Sondage sondage;
 	
 
@@ -48,16 +47,7 @@ public class Reunion {
 	public void setResume(String resume) {
 		this.resume = resume;
 	}
-//	@OneToMany(mappedBy="reunion")
-	@Transient
-	public List<Participants> getParticipant() {
-		return participant;
-	}
-	public void setParticipant(List<Participants> participant) {
-		this.participant = participant;
-	}
-
-	 @OneToOne(fetch=FetchType.LAZY)
+    @OneToOne(fetch=FetchType.LAZY)
 	  @JoinColumn(name="SondageID")
 	public Sondage getSondage() {
 		return sondage;

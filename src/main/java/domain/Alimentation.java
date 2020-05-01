@@ -13,9 +13,8 @@ public class Alimentation {
 
 	private Long id;
 	private String LibellePreferenceAlimentation;
-	
-    private Participants participant;
-	
+
+	private Participants participant;
 
 	public Alimentation(String libellePreferenceAlimentation) {
 		LibellePreferenceAlimentation = libellePreferenceAlimentation;
@@ -38,9 +37,13 @@ public class Alimentation {
 	public void setLibellePreferenceAlimentation(String libellePreferenceAlimentation) {
 		LibellePreferenceAlimentation = libellePreferenceAlimentation;
 	}
-	/*lazy permet de recuperer les donnée si cela est necessaire
-	 * les associations se termine par one ont besoin de Lazy*/
-	@ManyToOne
+
+	/*
+	 * lazy permet de recuperer les donnée si cela est necessaire les associations
+	 * se termine par one ont besoin de Lazy
+	 */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "participant_id")
 	public Participants getParticipant() {
 		return participant;
 	}

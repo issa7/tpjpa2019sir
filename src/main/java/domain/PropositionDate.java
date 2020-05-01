@@ -1,20 +1,24 @@
 package domain;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class PropositionDate {
 	
 	private Long id;
-	
 	private Date date1;
 	private Sondage sondages;
+	private List<ChoixParticipants> choix;
 	
+
 	@Id
 	@GeneratedValue
 	public Long getId() {
@@ -39,6 +43,15 @@ public class PropositionDate {
 	public void setSondages(Sondage sondage) {
 		this.sondages = sondage;
 	}
+	@OneToMany(mappedBy = "propo")
+	public List<ChoixParticipants> getChoix() {
+		return choix;
+	}
+
+	public void setChoix(List<ChoixParticipants> choix) {
+		this.choix = choix;
+	}
+	
 	
 
 }

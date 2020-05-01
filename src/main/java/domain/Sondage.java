@@ -15,6 +15,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -31,7 +32,7 @@ public class Sondage {
 	private List<PropositionDate> dates = new ArrayList<PropositionDate>();
 	private List<Participants> participants = new ArrayList<Participants>();
 	private Createur utilisateur;
-   
+
 	public Sondage(String nomSondage, List<PropositionDate> dates) {
 		this.nomSondage = nomSondage;
 		this.dates = dates;
@@ -57,7 +58,7 @@ public class Sondage {
 //	public void setDatesProposes(List<Date> datesProposes) {
 //		this.dates = datesProposes;
 //	}
-	
+
 	public String getNomSondage() {
 		return nomSondage;
 	}
@@ -66,8 +67,7 @@ public class Sondage {
 		this.nomSondage = nomSondage;
 	}
 
-//	@OneToMany(mappedBy = "sondage")
-	@Transient
+@ManyToMany(mappedBy = "sondage")
 	public List<Participants> getParticipants() {
 		return participants;
 	}
@@ -76,7 +76,7 @@ public class Sondage {
 		this.participants = participants;
 	}
 
-	@OneToMany(mappedBy = "sondages",cascade = CascadeType.PERSIST)
+	@OneToMany(mappedBy = "sondages", cascade = CascadeType.PERSIST)
 	public List<PropositionDate> getDates() {
 		return dates;
 	}
@@ -85,10 +85,11 @@ public class Sondage {
 		this.dates = dates;
 	}
 
-/*lazy permet de recuperer les donnée si cela est necessaire
-	 * les associations se termine par one ont besoin de Lazy*/
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "createur_id")
+	/*
+	 * lazy permet de recuperer les donnée si cela est necessaire les associations
+	 * se termine par one ont besoin de Lazy
+	 */
+	@ManyToOne
 	public Createur getUtilisateur() {
 		return utilisateur;
 	}
