@@ -14,10 +14,14 @@ import javax.persistence.OneToMany;
 public class PropositionDate {
 	
 	private Long id;
-	private Date date1;
+	private Date date1 = new Date();
 	private Sondage sondages;
 	private List<ChoixParticipants> choix;
 	
+
+	public PropositionDate(Date date1) {
+		this.date1 = date1;
+	}
 
 	@Id
 	@GeneratedValue

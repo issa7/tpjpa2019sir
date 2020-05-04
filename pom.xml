@@ -44,7 +44,19 @@
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.0.1</version>
 			 <scope>provided</scope>			
-		</dependency>				
+		</dependency>			
+		<dependency>
+    <groupId>com.sun.jersey</groupId>
+    <artifactId>jersey-servlet</artifactId>
+    <version>1.18.3</version>
+</dependency>
+              
+<dependency>
+    <groupId>com.sun.jersey</groupId>
+    <artifactId>jersey-json</artifactId>
+    <version>1.18.3</version>
+</dependency>
+			
 	</dependencies>
 	<build>
 		<plugins>
@@ -54,11 +66,21 @@
 				<version>2.2</version>
 				<configuration>
 					<path>/</path>
+					 <port>8083</port>
 				</configuration>
 			</plugin>
 		</plugins>
 	
 </build>
-	   
+<!--  <execution>
+ <id>tomcat-run</id>
+ <goals>
+ <goal>run</goal>
+ </goals>
+ <phase>pre-integration-test</phase>
+ <configuration>
+ <port>19090</port>
+</configuration>
+</execution> -->
 	
 </project>

@@ -25,6 +25,12 @@ public class Reunion {
 	
 
 
+	public Reunion(String intitule, String resume) {
+		super();
+		this.intitule = intitule;
+		this.resume = resume;
+	}
+
 	@Id
 	@GeneratedValue
 	public Long getId() {

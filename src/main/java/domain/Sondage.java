@@ -38,6 +38,27 @@ public class Sondage {
 		this.dates = dates;
 	}
 
+	public Sondage(String nomSondage, List<PropositionDate> dates, Createur utilisateur) {
+		super();
+		this.nomSondage = nomSondage;
+		this.dates = dates;
+		this.utilisateur = utilisateur;
+	}
+
+	public Sondage(String nomSondage, List<PropositionDate> dates, List<Participants> participants,
+			Createur utilisateur) {
+		super();
+		this.nomSondage = nomSondage;
+		this.dates = dates;
+		this.participants = participants;
+		this.utilisateur = utilisateur;
+	}
+
+	public Sondage(String nomSondage) {
+		super();
+		this.nomSondage = nomSondage;
+	}
+
 	@Id
 	@GeneratedValue
 	public Long getId() {

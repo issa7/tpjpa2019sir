@@ -34,6 +34,13 @@ public class Createur extends Personne {
 
 	}
 
+	public Createur(String mail, String nom, String prenom) {
+		super();
+		this.mail = mail;
+		this.nom = nom;
+		this.prenom = prenom;
+	}
+
 	@Id
 	@Column(name = "CREATEUR_ID")
 	public String getMail() {
