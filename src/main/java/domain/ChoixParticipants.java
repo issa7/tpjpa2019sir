@@ -14,43 +14,73 @@ import javax.persistence.Transient;
 
 @Entity
 public class ChoixParticipants {
+
+	private Long idChoix;
+	private Date choix;
+	private String Lieu;
+
+	private PropositionDate propo;
+	private Participants participant;
+     private PropositionLieu note;
 	
-    private Long idChoix;
-    private Date choix;
-    private PropositionDate propo;
-    private Participants participant;
-	
+
 	public ChoixParticipants(Date choix) {
 		this.choix = choix;
 	}
+
 	@Id
-    @GeneratedValue
+	@GeneratedValue
 	public Long getIdChoix() {
 		return idChoix;
 	}
+
 	public void setIdChoix(Long idChoix) {
 		this.idChoix = idChoix;
 	}
-	 @Temporal(TemporalType.DATE)
+
+	@Temporal(TemporalType.DATE)
 	public Date getChoix() {
 		return choix;
 	}
+
 	public void setChoix(Date choix) {
 		this.choix = choix;
 	}
+
 	@ManyToOne
 	public PropositionDate getPropo() {
 		return propo;
 	}
+
 	public void setPropo(PropositionDate propo) {
 		this.propo = propo;
 	}
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "participant_id")
 	public Participants getParticipant() {
 		return participant;
 	}
+
 	public void setParticipant(Participants participant) {
 		this.participant = participant;
 	}
+
+	public String getLieu() {
+		return Lieu;
+	}
+
+	public void setLieu(String lieu) {
+		Lieu = lieu;
+	}
+@ManyToOne
+	public PropositionLieu getNote() {
+		return note;
+	}
+
+	public void setNote(PropositionLieu note) {
+		this.note = note;
+	}
+   
+	
 }

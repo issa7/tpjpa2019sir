@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -22,9 +23,9 @@ public class Participants extends Personne {
 	private String Motpass;
 	
 	private List<Sondage> sondage;
-	private List<ChoixParticipants> choix;
-	private List<Alimentation>PreferenceAliment;
-	private List<Allergies> allergie;
+	private List<ChoixParticipants> choix = new ArrayList<ChoixParticipants>();
+	private List<Alimentation>PreferenceAliment = new ArrayList<Alimentation>();
+	private List<Allergies> allergie = new ArrayList<Allergies>();
 	public Participants(List<Sondage> sondage, List<ChoixParticipants> choix, List<Alimentation> preferenceAliment,
 			List<Allergies> allergie) {
 		super();
@@ -86,5 +87,24 @@ public class Participants extends Personne {
 	public void setMotpass(String motpass) {
 		Motpass = motpass;
 	}
-	
+	public void addChoix(ChoixParticipants choix1) {
+		choix.add(choix1);
+		choix1.setParticipant(this);
+	}
+	public void removechoix(ChoixParticipants choix2) {
+		choix.remove(choix2);
+		choix2.setChoix(null);
+	}
+	public void addpreferAlimenataire(Alimentation preference) {
+		PreferenceAliment.add(preference);
+		preference.setParticipant(this);
+	}
+	public void removePreferAlimenataire(Alimentation preference) {
+		PreferenceAliment.add(preference);
+		preference.setParticipant(null);
+	}
+	public void addAllergie(Allergies allergies) {
+		allergie.add(allergies);
+		allergies.setParticipant(this);
+	}
 }

@@ -69,7 +69,7 @@ public class JpaTest {
 			  propo.add(propo1);
 			  propo.add(propo2);
 			  manager.persist( new Reunion("debat", "resumer"));
-			  manager.persist( new Sondage("sondage de exam",propo,createur)); 
+			//  manager.persist( new Sondage("sondage de exam",propo,createur)); 
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

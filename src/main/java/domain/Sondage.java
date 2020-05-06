@@ -10,10 +10,14 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -24,43 +28,42 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 @Entity
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="sondage_type")
 public class Sondage {
 
 	private Long id;
 	private String nomSondage;
 
-	private List<PropositionDate> dates = new ArrayList<PropositionDate>();
 	private List<Participants> participants = new ArrayList<Participants>();
 	private Createur utilisateur;
 
-	public Sondage(String nomSondage, List<PropositionDate> dates) {
+	public Sondage () {
+		
+	}
+	public Sondage(String nomSondage) {
 		this.nomSondage = nomSondage;
-		this.dates = dates;
 	}
 
-	public Sondage(String nomSondage, List<PropositionDate> dates, Createur utilisateur) {
+	public Sondage(String nomSondage, Createur utilisateur) {
 		super();
 		this.nomSondage = nomSondage;
-		this.dates = dates;
 		this.utilisateur = utilisateur;
 	}
 
-	public Sondage(String nomSondage, List<PropositionDate> dates, List<Participants> participants,
+	public Sondage(String nomSondage, List<Participants> participants,
 			Createur utilisateur) {
 		super();
 		this.nomSondage = nomSondage;
-		this.dates = dates;
+		
 		this.participants = participants;
 		this.utilisateur = utilisateur;
 	}
 
-	public Sondage(String nomSondage) {
-		super();
-		this.nomSondage = nomSondage;
-	}
+	
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Long getId() {
 		return id;
 	}
@@ -95,15 +98,6 @@ public class Sondage {
 
 	public void setParticipants(List<Participants> participants) {
 		this.participants = participants;
-	}
-
-	@OneToMany(mappedBy = "sondages", cascade = CascadeType.PERSIST)
-	public List<PropositionDate> getDates() {
-		return dates;
-	}
-
-	public void setDates(List<PropositionDate> dates) {
-		this.dates = dates;
 	}
 
 	/*
