@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.Query;
 
+import domain.PropositionDate;
+import domain.PropositionLieu;
 import domain.Sondage;
 import jpa.EntityManagerHelper;
 
@@ -20,6 +22,20 @@ public class PropositionLieuDao {
 				.setParameter("lieu", lieu).getSingleResult();
 	}
 	
+	
+	public PropositionLieu save(PropositionLieu P) {
+		 EntityManagerHelper.beginTransaction();
+	        if (P.getNomSondage() != null) {
+	            EntityManagerHelper.getEntityManager().merge(P);
+
+	        } else {
+	            EntityManagerHelper.getEntityManager().persist(P);
+
+	        }
+	        EntityManagerHelper.commit();
+	        return P;
+
+	}
 	/** retourne le nombre de ligne supprimer
 	 * @return int le nombre de ligne retourner
 	 * */

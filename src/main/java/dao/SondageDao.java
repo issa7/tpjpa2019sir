@@ -19,6 +19,21 @@ public class SondageDao {
 	public Sondage findById(long id) {
 		return EntityManagerHelper.getEntityManager().find(Sondage.class, id);
 	}
+	
+	
+	public Sondage save(Sondage S) {
+		 EntityManagerHelper.beginTransaction();
+	        if (S.getNomSondage() != null) {
+	            EntityManagerHelper.getEntityManager().merge(S);
+
+	        } else {
+	            EntityManagerHelper.getEntityManager().persist(S);
+
+	        }
+	        EntityManagerHelper.commit();
+	        return S;
+
+	}
       /**supprime un sondage quelconque
        * @param id du sondage
        * */

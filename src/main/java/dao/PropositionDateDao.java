@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Query;
 
 import domain.PropositionDate;
+import domain.PropositionLieu;
 import domain.ResultatSondage;
 import domain.Sondage;
 import jpa.EntityManagerHelper;
@@ -19,6 +20,20 @@ public class PropositionDateDao {
 	public Sondage findByDate(Date date) {
 		return EntityManagerHelper.getEntityManager().createQuery("select s from Sondage as s where s.date =:date and s.sondage_type = 'SondageDate' ",Sondage.class)
 				.setParameter("date", date).getSingleResult();
+	}
+	
+	public PropositionDate save(PropositionDate P) {
+		 EntityManagerHelper.beginTransaction();
+	        if (P.getNomSondage() != null) {
+	            EntityManagerHelper.getEntityManager().merge(P);
+
+	        } else {
+	            EntityManagerHelper.getEntityManager().persist(P);
+
+	        }
+	        EntityManagerHelper.commit();
+	        return P;
+
 	}
 	/** retourne le nombre de ligne supprimer
 	 * @return int le nombre de ligne retourner
