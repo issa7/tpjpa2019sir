@@ -59,8 +59,8 @@ public class JpaTest {
   		       String date2 = "23/06/2006";
   		  SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
   		  try {
-  			  Createur createur = new Createur("keita@gmail.com", "issa", "keita");
-  			 manager.persist(createur);
+  			  //Createur createur = new Createur("keita@gmail.com", "issa", "keita");
+  			// manager.persist(createur);
 			Date date11 = simpleDateFormat.parse(date1);
 			Date date22 = simpleDateFormat.parse(date2);
 			  PropositionDate propo1 = new PropositionDate(date11);

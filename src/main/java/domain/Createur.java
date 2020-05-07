@@ -17,13 +17,16 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 @Entity
 @DiscriminatorValue("createur")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Createur extends Personne {
 	private String mail;
 	private String nom;
 	private String prenom;
-	private String MotPass;
+	private String pass;
   
 	// private
 	private List<Sondage> sondage = new ArrayList<Sondage>();
@@ -34,11 +37,16 @@ public class Createur extends Personne {
 
 	}
 
-	public Createur(String mail, String nom, String prenom) {
+	public Createur(String mail, String nom, String prenom,String pass) {
 		super();
 		this.mail = mail;
 		this.nom = nom;
 		this.prenom = prenom;
+		this.pass = pass;
+	}
+
+	public Createur() {
+		
 	}
 
 	@Id
@@ -79,11 +87,11 @@ public class Createur extends Personne {
 		}
 
 		public String getMotPass() {
-			return MotPass;
+			return pass;
 		}
 
 		public void setMotPass(String motPass) {
-			MotPass = motPass;
+			pass = motPass;
 		}
 
 }

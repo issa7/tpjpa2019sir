@@ -71,4 +71,5 @@ public class CreateurDao {
 		return EntityManagerHelper.getEntityManager().createQuery("select c from Createur as c", Createur.class)
 				.getResultList();
 	}
+	
 }
