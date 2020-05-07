@@ -9,6 +9,7 @@ import domain.Participants;
 import jpa.EntityManagerHelper;
 
 public class ParticipantDao {
+	
 	public Participants findByMailParticipants(String mail) {
 		return EntityManagerHelper.getEntityManager().find(Participants.class, mail);
 	}

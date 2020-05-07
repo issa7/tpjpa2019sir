@@ -13,9 +13,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import dao.AlimentationDao;
 import dao.CreateurDao;
+import dao.ParticipantDao;
 import dao.SondageDao;
+import domain.Alimentation;
 import domain.Createur;
+import domain.Participants;
 import domain.Sondage;
 import jpa.EntityManagerHelper;
 
@@ -26,7 +30,8 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 	private static final Logger logger = Logger.getLogger(ServiceMetierDoodleImpl.class.getName());
 	private SondageDao daoSondage;
 	private CreateurDao createur = new CreateurDao();
-
+    private AlimentationDao Aliment = new AlimentationDao();
+    private ParticipantDao participant = new ParticipantDao();
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -75,6 +80,23 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 		this.createur.delete(mail);
 		String result = "le createur qui a pour " + mail + "  est  Supprimé";
 		return Response.status(201).entity(result).build();
+	}
+	
+	@POST
+	@Path("/alimention/add")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Alimentation addAlimentation( Alimentation A) {
+		// TODO Auto-generated method stub
+		return this.Aliment.save(A);
+	}
+	@POST
+	@Path("/participant/add")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Participants AddParticipant(Participants P) {
+		// TODO Auto-generated method stub
+		return this.participant.save(P);
 	}
 
 }

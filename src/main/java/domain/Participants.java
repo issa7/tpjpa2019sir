@@ -3,6 +3,7 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Access;
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -13,8 +14,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 @Entity
 @DiscriminatorValue("PARTICIPANT")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Participants extends Personne {
 	
 	private String mail;
@@ -34,6 +38,11 @@ public class Participants extends Personne {
 		PreferenceAliment = preferenceAliment;
 		this.allergie = allergie;
 	}
+	
+	public Participants() {
+		super();
+	}
+
 	@Id
 	public String getMail() {
 		return mail;
