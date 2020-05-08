@@ -3,11 +3,16 @@ package domain;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Allergies {
 
 	private Long id;
@@ -18,8 +23,12 @@ public class Allergies {
 		this.libelleAllergie = libelleAllergie;
 	}
 
+	public Allergies() {
+		super();
+	}
+
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Long getId() {
 		return id;
 	}
@@ -40,8 +49,8 @@ public class Allergies {
 	 * lazy permet de recuperer les donnée si cela est necessaire les associations
 	 * se termine par one ont besoin de Lazy
 	 */
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "participantAllergie_id")
+	@ManyToOne
+	@JsonIgnore
 	public Participants getParticipant() {
 		return participant;
 	}

@@ -39,6 +39,9 @@ public class Participants extends Personne {
 		this.allergie = allergie;
 	}
 	
+	public Participants(String stringJSON) {
+		super();
+	}
 	public Participants() {
 		super();
 	}

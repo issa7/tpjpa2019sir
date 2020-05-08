@@ -27,9 +27,12 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="sondage_type")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Sondage {
 
 	private Long id;

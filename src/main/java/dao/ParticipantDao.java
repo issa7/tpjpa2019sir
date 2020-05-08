@@ -39,6 +39,6 @@ public class ParticipantDao {
 
 	public List<Participants> findAll() {
 		return EntityManagerHelper.getEntityManager()
-				.createQuery("select p from Participants as p ", Participants.class).getResultList();
+				.createQuery("select p from Participants p ", Participants.class).getResultList();
 	}
 }

@@ -10,7 +10,7 @@ import jpa.EntityManagerHelper;
 
 public class SondageDao {
 	
-	private PropositionDateDao dao;
+	private PropositionDateDao dao = new PropositionDateDao();
 	
 	/**renvoie un sondage de type quelcomque requêtes polymorphes
 	 * @param id du sondage a chercher
@@ -46,7 +46,7 @@ public class SondageDao {
 	 * @return une collection qui contient tous les sondages */
 	  public List<Sondage> findAll() {
 	       List<Sondage> liste = new ArrayList<Sondage>();
-	       liste.addAll(dao.findAll());
+	       liste.addAll(dao.findAllSondage());
 	       return liste;
 		}
 

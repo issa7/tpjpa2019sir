@@ -17,6 +17,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @Entity
@@ -63,6 +64,7 @@ public class Createur extends Personne {
 //	@JoinTable(name = "CREATEUR_SONDAGE", joinColumns = {
 //			@JoinColumn(name = "CREATEUR_ID", referencedColumnName = "CREATEUR_ID") }, inverseJoinColumns = {
 //					@JoinColumn(name = "Sondage_id", referencedColumnName = "ID", unique = true) })
+	@JsonIgnore
 	public List<Sondage> getSondage() {
 		return sondage;
 	}

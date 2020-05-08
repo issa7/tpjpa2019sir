@@ -1,13 +1,16 @@
 package domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
@@ -30,12 +33,17 @@ public class Alimentation {
 		this.participant = participant;
 	}
 
+	public Alimentation(Participants participant) {
+		super();
+		this.participant = participant;
+	}
+
 	public Alimentation(String libellePreferenceAlimentation) {
 		LibellePreferenceAlimentation = libellePreferenceAlimentation;
 	}
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Long getId() {
 		return id;
 	}
@@ -55,10 +63,13 @@ public class Alimentation {
 	/*
 	 * lazy permet de recuperer les donnée si cela est necessaire les associations
 	 * se termine par one ont besoin de Lazy
+	
 	 */
-	@JsonProperty(value = "participant_id")
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "participant_id")
+	//@JsonIgnore
+	//@JsonProperty("participant")
+	 
+	@ManyToOne
+	@JsonIgnore
 	public Participants getParticipant() {
 		return participant;
 	}

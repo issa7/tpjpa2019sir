@@ -8,27 +8,38 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 @Entity
 @DiscriminatorValue("SondageLieu")
-public class PropositionLieu extends Sondage{
-   
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class PropositionLieu extends Sondage {
+
 	private String Lieu;
 	private List<ChoixParticipants> choix;
-	
+
+	public PropositionLieu() {
+		super();
+	}
+
 	public String getLieu() {
 		return Lieu;
 	}
+
 	public void setLieu(String lieu) {
 		Lieu = lieu;
 	}
+
 	public PropositionLieu(String nomSondage) {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 	@OneToMany(mappedBy = "note")
 	public List<ChoixParticipants> getChoix() {
 		return choix;
 	}
+
 	public void setChoix(List<ChoixParticipants> choix) {
 		this.choix = choix;
 	}
