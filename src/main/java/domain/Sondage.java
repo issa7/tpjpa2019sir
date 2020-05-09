@@ -94,7 +94,7 @@ public class Sondage {
 		this.nomSondage = nomSondage;
 	}
 
-@ManyToMany(mappedBy = "sondage")
+    @OneToMany(mappedBy = "sondage")
 	public List<Participants> getParticipants() {
 		return participants;
 	}

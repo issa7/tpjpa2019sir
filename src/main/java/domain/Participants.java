@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @Entity
@@ -26,11 +27,14 @@ public class Participants extends Personne {
 	private String prenom;
 	private String Motpass;
 	
-	private List<Sondage> sondage;
+	
+	private Sondage sondage = new Sondage();
+	
+	
 	private List<ChoixParticipants> choix = new ArrayList<ChoixParticipants>();
 	private List<Alimentation>PreferenceAliment = new ArrayList<Alimentation>();
 	private List<Allergies> allergie = new ArrayList<Allergies>();
-	public Participants(List<Sondage> sondage, List<ChoixParticipants> choix, List<Alimentation> preferenceAliment,
+	public Participants(Sondage sondage, List<ChoixParticipants> choix, List<Alimentation> preferenceAliment,
 			List<Allergies> allergie) {
 		super();
 		this.sondage = sondage;
@@ -45,7 +49,10 @@ public class Participants extends Personne {
 	public Participants() {
 		super();
 	}
-
+	public Participants(Sondage sondage) {
+		super();
+		this.sondage = sondage;
+	}
 	@Id
 	public String getMail() {
 		return mail;
@@ -53,11 +60,20 @@ public class Participants extends Personne {
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
-	@ManyToMany
-	public List<Sondage> getSondage() {
+//	@ManyToMany
+//	public List<Sondage> getSondage() {
+//		return sondage;
+//	}
+//	public void setSondage(List<Sondage> sondage) {
+//		this.sondage = sondage;
+//	}
+	@ManyToOne
+	@JsonIgnore
+	public Sondage getSondage() {
 		return sondage;
 	}
-	public void setSondage(List<Sondage> sondage) {
+
+	public void setSondage(Sondage sondage) {
 		this.sondage = sondage;
 	}
 	@OneToMany(mappedBy="participant", cascade = CascadeType.PERSIST)

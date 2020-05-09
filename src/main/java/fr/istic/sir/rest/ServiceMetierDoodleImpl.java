@@ -1,6 +1,7 @@
 package fr.istic.sir.rest;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.ws.rs.Consumes;
@@ -16,6 +17,7 @@ import javax.ws.rs.core.Response;
 import dao.AlimentationDao;
 import dao.AllergiesDao;
 import dao.CreateurDao;
+import dao.DateSondageDao;
 import dao.ParticipantDao;
 import dao.PropositionDateDao;
 import dao.PropositionLieuDao;
@@ -23,6 +25,7 @@ import dao.SondageDao;
 import domain.Alimentation;
 import domain.Allergies;
 import domain.Createur;
+import domain.DateSondage;
 import domain.Participants;
 import domain.PropositionDate;
 import domain.PropositionLieu;
@@ -41,7 +44,7 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 	private AlimentationDao Aliment = new AlimentationDao();
 	private ParticipantDao participant = new ParticipantDao();
 	private AllergiesDao allergies = new AllergiesDao();
-
+    private DateSondageDao dateSondageDao = new DateSondageDao();
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -176,6 +179,34 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 	public Collection<PropositionLieu> getAllSondageLieu() {
 		// TODO Auto-generated method stub
 		return this.sondageLieu.findAll();
+	}
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/sondageDate/{idSondage}/participant")
+	public void addParticipantSondage(@PathParam("idSondage")long id, Participants participant) {
+		// TODO Auto-generated method stub
+		String res = "SELECT c FROM  PropositionDate c WHERE c.id = :id";
+		PropositionDate p = (PropositionDate) EntityManagerHelper.getEntityManager().createQuery(res).setParameter("id", id)
+				.getSingleResult();
+		if (p != null) {
+			participant.setSondage(p);;
+			this.participant.save(participant);
+		}
+	}
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/sondageDate/{idSondageDate}/datesSondage")
+	public void addDateSondageForPropositionDate(@PathParam("idSondageDate") long id, DateSondage date) {
+		// TODO Auto-generated method stub
+		String res = "SELECT c FROM  PropositionDate c WHERE c.id = :id";
+		PropositionDate p = (PropositionDate) EntityManagerHelper.getEntityManager().createQuery(res).setParameter("id", id)
+				.getSingleResult();
+		if (p != null) {
+			date.setPropostiondate(p);;;
+			this.dateSondageDao.save(date);
+		}
 	}
 
 }

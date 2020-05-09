@@ -63,11 +63,11 @@ public class JpaTest {
   			// manager.persist(createur);
 			Date date11 = simpleDateFormat.parse(date1);
 			Date date22 = simpleDateFormat.parse(date2);
-			  PropositionDate propo1 = new PropositionDate(date11);
-			  PropositionDate propo2 = new PropositionDate(date22);
+			 // PropositionDate propo1 = new PropositionDate(date11);
+			  //PropositionDate propo2 = new PropositionDate(date22);
 			  List<PropositionDate> propo = new  ArrayList<PropositionDate>();
-			  propo.add(propo1);
-			  propo.add(propo2);
+			  //propo.add(propo1);
+			  //propo.add(propo2);
 			  manager.persist( new Reunion("debat", "resumer"));
 			//  manager.persist( new Sondage("sondage de exam",propo,createur)); 
 		} catch (ParseException e) {

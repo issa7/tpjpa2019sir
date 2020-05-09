@@ -7,6 +7,7 @@ import javax.ws.rs.core.Response;
 import domain.Alimentation;
 import domain.Allergies;
 import domain.Createur;
+import domain.DateSondage;
 import domain.Participants;
 import domain.PropositionDate;
 import domain.PropositionLieu;
@@ -26,4 +27,6 @@ public interface ServiceMetierDoodle {
 	Collection<PropositionDate> getAllSondageDate();
 	void creatSondageLieu(String mail, PropositionLieu lieu);
 	Collection<PropositionLieu> getAllSondageLieu();
+	void addParticipantSondage(long id,Participants participant);
+	void addDateSondageForPropositionDate(long id, DateSondage date);
 }
