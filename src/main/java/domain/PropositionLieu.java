@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -15,19 +16,19 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PropositionLieu extends Sondage {
 
-	private String Lieu;
+	private List<LieuSondage> lieu = new ArrayList<LieuSondage>();
 	private List<ChoixParticipants> choix;
 
 	public PropositionLieu() {
 		super();
 	}
-
-	public String getLieu() {
-		return Lieu;
+	@OneToMany(mappedBy = "propoLieu",fetch = FetchType.LAZY )
+	public List<LieuSondage> getLieu() {
+		return lieu;
 	}
 
-	public void setLieu(String lieu) {
-		Lieu = lieu;
+	public void setLieu(List<LieuSondage> lieu) {
+		this.lieu = lieu;
 	}
 
 	public PropositionLieu(String nomSondage) {

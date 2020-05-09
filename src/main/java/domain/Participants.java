@@ -7,6 +7,7 @@ import javax.persistence.Access;
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -76,7 +77,7 @@ public class Participants extends Personne {
 	public void setSondage(Sondage sondage) {
 		this.sondage = sondage;
 	}
-	@OneToMany(mappedBy="participant", cascade = CascadeType.PERSIST)
+	@OneToMany(mappedBy="participant", cascade = CascadeType.PERSIST,fetch = FetchType.LAZY)
 	public List<ChoixParticipants> getChoix() {
 		return choix;
 	}

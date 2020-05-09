@@ -16,16 +16,20 @@ import javax.ws.rs.core.Response;
 
 import dao.AlimentationDao;
 import dao.AllergiesDao;
+import dao.ChoixParticipantsDao;
 import dao.CreateurDao;
 import dao.DateSondageDao;
+import dao.LieuSondageDao;
 import dao.ParticipantDao;
 import dao.PropositionDateDao;
 import dao.PropositionLieuDao;
 import dao.SondageDao;
 import domain.Alimentation;
 import domain.Allergies;
+import domain.ChoixParticipants;
 import domain.Createur;
 import domain.DateSondage;
+import domain.LieuSondage;
 import domain.Participants;
 import domain.PropositionDate;
 import domain.PropositionLieu;
@@ -45,6 +49,8 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 	private ParticipantDao participant = new ParticipantDao();
 	private AllergiesDao allergies = new AllergiesDao();
     private DateSondageDao dateSondageDao = new DateSondageDao();
+    private LieuSondageDao lieusondageDao = new LieuSondageDao();
+    private ChoixParticipantsDao choixDao = new ChoixParticipantsDao();
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -204,8 +210,38 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 		PropositionDate p = (PropositionDate) EntityManagerHelper.getEntityManager().createQuery(res).setParameter("id", id)
 				.getSingleResult();
 		if (p != null) {
-			date.setPropostiondate(p);;;
+			date.setPropostiondate(p);
 			this.dateSondageDao.save(date);
+		}
+	}
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/sondagelieu/{idSondageLieu}/lieuxSondage")
+	public void addLieuSondageForPropositionLieu(long id, LieuSondage lieu) {
+		// TODO Auto-generated method stub
+		String res = "SELECT c FROM  PropositionDate c WHERE c.id = :id";
+		PropositionLieu p = (PropositionLieu) EntityManagerHelper.getEntityManager().createQuery(res).setParameter("id", id)
+				.getSingleResult();
+		if (p != null) {
+			lieu.setPropoLieu(p);
+			this.lieusondageDao.save(lieu);
+		}
+	}
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/sondageDate/{idsondage}/participant/{mail}/choix")
+	public void addChoixforSondageDate(@PathParam("idsondage")long id, @PathParam("mail")String mail, ChoixParticipants choix) {
+		// TODO Auto-generated method stub
+		String req = "SELECT p FROM Sondage r join r.participants p WHERE r.id = :idsondage AND p.mail = :mail";
+		Participants p = (Participants) EntityManagerHelper.getEntityManager().createQuery(req)
+				.setParameter("idsondage", id)
+				.setParameter("mail", mail)
+				.getSingleResult();
+		if(p != null) {
+			choix.setParticipant(p);
+			this.choixDao.save(choix);
 		}
 	}
 

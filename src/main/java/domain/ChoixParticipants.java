@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -12,7 +13,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ChoixParticipants {
 
 	private Long idChoix;
@@ -29,7 +34,7 @@ public class ChoixParticipants {
 	}
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Long getIdChoix() {
 		return idChoix;
 	}
@@ -47,6 +52,10 @@ public class ChoixParticipants {
 		this.choix = choix;
 	}
 
+	public ChoixParticipants() {
+		super();
+	}
+
 	@ManyToOne
 	public PropositionDate getPropo() {
 		return propo;
@@ -56,8 +65,8 @@ public class ChoixParticipants {
 		this.propo = propo;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "participant_id")
+	@ManyToOne
+	@JsonIgnore
 	public Participants getParticipant() {
 		return participant;
 	}
