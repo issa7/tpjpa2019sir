@@ -8,6 +8,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
@@ -18,7 +19,9 @@ public class PropositionLieu extends Sondage {
 
 	private List<LieuSondage> lieu = new ArrayList<LieuSondage>();
 	private List<ChoixParticipants> choix;
+	private Reunion reunion = new Reunion();
 
+	
 	public PropositionLieu() {
 		super();
 	}
@@ -43,5 +46,12 @@ public class PropositionLieu extends Sondage {
 
 	public void setChoix(List<ChoixParticipants> choix) {
 		this.choix = choix;
+	}
+	@OneToOne(fetch=FetchType.LAZY, mappedBy="lieux")
+	public Reunion getReunion() {
+		return reunion;
+	}
+	public void setReunion(Reunion reunion) {
+		this.reunion = reunion;
 	}
 }

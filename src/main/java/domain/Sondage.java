@@ -36,18 +36,17 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 public class Sondage {
 
 	private Long id;
-	private String nomSondage;
+	protected String nomSondage;
 
-	private List<Participants> participants = new ArrayList<Participants>();
-	private Createur utilisateur;
-
+	protected List<Participants> participants = new ArrayList<Participants>();
+	protected Createur utilisateur;
 	public Sondage () {
 		
 	}
 	public Sondage(String nomSondage) {
 		this.nomSondage = nomSondage;
 	}
-
+	
 	public Sondage(String nomSondage, Createur utilisateur) {
 		super();
 		this.nomSondage = nomSondage;
@@ -115,5 +114,5 @@ public class Sondage {
 	public void setUtilisateur(Createur utilisateur) {
 		this.utilisateur = utilisateur;
 	}
-
+	
 }

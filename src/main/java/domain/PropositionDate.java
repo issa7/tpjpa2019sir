@@ -12,9 +12,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @Entity
@@ -24,6 +26,11 @@ public class PropositionDate extends Sondage {
 
 	private List<DateSondage> date1 = new ArrayList<DateSondage>();
 	private List<ChoixParticipants> choix;
+    private Reunion reunion;
+	public PropositionDate(Reunion reunion) {
+		super();
+		this.reunion = reunion;
+	}
 
 	public PropositionDate() {
 		super();
@@ -58,6 +65,14 @@ public class PropositionDate extends Sondage {
 
 	public void setChoix(List<ChoixParticipants> choix) {
 		this.choix = choix;
+	}
+	@OneToOne(fetch=FetchType.LAZY, mappedBy="dates")
+	public Reunion getReunion() {
+		return reunion;
+	}
+
+	public void setReunion(Reunion reunion) {
+		this.reunion = reunion;
 	}
 
 }

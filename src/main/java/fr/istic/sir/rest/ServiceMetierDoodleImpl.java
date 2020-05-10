@@ -23,6 +23,7 @@ import dao.LieuSondageDao;
 import dao.ParticipantDao;
 import dao.PropositionDateDao;
 import dao.PropositionLieuDao;
+import dao.ReunionDao;
 import dao.SondageDao;
 import domain.Alimentation;
 import domain.Allergies;
@@ -33,6 +34,7 @@ import domain.LieuSondage;
 import domain.Participants;
 import domain.PropositionDate;
 import domain.PropositionLieu;
+import domain.Reunion;
 import domain.Sondage;
 import jpa.EntityManagerHelper;
 
@@ -51,6 +53,12 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
     private DateSondageDao dateSondageDao = new DateSondageDao();
     private LieuSondageDao lieusondageDao = new LieuSondageDao();
     private ChoixParticipantsDao choixDao = new ChoixParticipantsDao();
+    private ReunionDao reunion = new ReunionDao();
+    
+    
+    
+    
+    
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -217,10 +225,10 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Path("/sondagelieu/{idSondageLieu}/lieuxSondage")
+	@Path("/sondagelieu/{id}/lieuxSondage")
 	public void addLieuSondageForPropositionLieu(long id, LieuSondage lieu) {
 		// TODO Auto-generated method stub
-		String res = "SELECT c FROM  PropositionDate c WHERE c.id = :id";
+		String res = "SELECT c FROM  PropositionLieu c WHERE c.id = :id";
 		PropositionLieu p = (PropositionLieu) EntityManagerHelper.getEntityManager().createQuery(res).setParameter("id", id)
 				.getSingleResult();
 		if (p != null) {
@@ -244,5 +252,31 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 			this.choixDao.save(choix);
 		}
 	}
+    
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/sondageDate/{id}/reunion")
+	public void addReunionForSondageDate(@PathParam("id") long id, Reunion r) {
+		// TODO Auto-generated method stub
+		String res = "SELECT c FROM  PropositionDate c WHERE c.id = :id";
+		PropositionDate p = (PropositionDate) EntityManagerHelper.getEntityManager().createQuery(res).setParameter("id", id)
+				.getSingleResult();
+		if (p != null) {
+			r.setDates(p);;
+			this.reunion.save(r);
+		}
+	}
+
+
+	@GET
+	@Path("/reunion/all")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Collection<Reunion> getAllreunion() {
+		// TODO Auto-generated method stub
+		return this.reunion.findAll();
+	}
+
+	
 
 }

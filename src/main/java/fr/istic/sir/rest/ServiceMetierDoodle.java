@@ -13,6 +13,7 @@ import domain.LieuSondage;
 import domain.Participants;
 import domain.PropositionDate;
 import domain.PropositionLieu;
+import domain.Reunion;
 import domain.Sondage;
 
 public interface ServiceMetierDoodle {
@@ -33,4 +34,6 @@ public interface ServiceMetierDoodle {
 	void addDateSondageForPropositionDate(long id, DateSondage date);
 	void addLieuSondageForPropositionLieu(long id, LieuSondage lieu);
 	void addChoixforSondageDate(long id,String mail,ChoixParticipants choix);
+	void addReunionForSondageDate(long id, Reunion r);
+	Collection<Reunion>getAllreunion();
 }

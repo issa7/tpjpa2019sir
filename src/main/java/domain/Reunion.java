@@ -16,14 +16,32 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 @Entity
 public class Reunion {
 	private Long id;
 	private String intitule;
 	private String resume;
-	private Sondage sondage;
 	
 
+    private PropositionLieu lieux;
+    private PropositionDate dates;
+	
+
+	public Reunion(PropositionDate dates) {
+		super();
+		this.dates = dates;
+	}
+
+	public Reunion(PropositionLieu lieux) {
+		super();
+		this.lieux = lieux;
+	}
+
+	public Reunion() {
+		super();
+	}
 
 	public Reunion(String intitule, String resume) {
 		super();
@@ -53,13 +71,27 @@ public class Reunion {
 	public void setResume(String resume) {
 		this.resume = resume;
 	}
-    @OneToOne(fetch=FetchType.LAZY)
-	  @JoinColumn(name="SondageID")
-	public Sondage getSondage() {
-		return sondage;
+   
+	
+	 @OneToOne(fetch=FetchType.LAZY)
+	  @JoinColumn(name="SondageLieuID")
+	 @JsonIgnore
+	public PropositionLieu getLieux() {
+		return lieux;
 	}
 
-	public void setSondage(Sondage sondage) {
-		this.sondage = sondage;
+	public void setLieux(PropositionLieu lieux) {
+		this.lieux = lieux;
 	}
+	 @OneToOne(fetch=FetchType.LAZY)
+	  @JoinColumn(name="SondageDateID")
+	 @JsonIgnore
+	public PropositionDate getDates() {
+		return dates;
+	}
+
+	public void setDates(PropositionDate dates) {
+		this.dates = dates;
+	}
+	
 }
