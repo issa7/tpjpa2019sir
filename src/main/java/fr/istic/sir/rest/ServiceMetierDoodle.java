@@ -44,5 +44,6 @@ public interface ServiceMetierDoodle {
 	PropositionDate getSondageDate(long id);
 	void deleteSondageDateById(long idsondage);
 	void deleteChoixById(String mail, long idChoix);
+	void deleteParticipantByMailForSondageDate(long idSondageDate,String mail);
 	
 }

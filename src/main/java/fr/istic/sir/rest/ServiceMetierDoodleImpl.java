@@ -368,6 +368,21 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 			this.choixDao.delete(idChoix);;
 		}
 	}
+	@DELETE
+	@Path("/participant/SondageDate/{idSondageDate}/participant/{mail}")
+	public void deleteParticipantByMailForSondageDate(@PathParam("idSondageDate")long idSondageDate,@PathParam("mail") String mail) {
+		// TODO Auto-generated method stub
+		String req = "SELECT p FROM PropositionDate r join r.participants p WHERE p.mail = :mail and r.id= :idSondageDate";
+		
+		Participants cp = (Participants) EntityManagerHelper.getEntityManager().createQuery(req)
+				.setParameter("idSondageDate", idSondageDate).setParameter("mail", mail).getSingleResult();
+        if (cp != null) {
+			
+			PropositionDate sondageDate = (PropositionDate) cp.getSondage();
+			 sondageDate.setParticipants(null);
+			this.participant.deleteParticipants(mail);
+		}  
+	}
 
 	
 	
