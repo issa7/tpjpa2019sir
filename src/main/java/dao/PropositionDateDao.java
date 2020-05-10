@@ -39,18 +39,29 @@ public class PropositionDateDao {
 		return P;
 
 	}
+	public Sondage findById(long id) {
+		return EntityManagerHelper.getEntityManager().find(Sondage.class, id);
+	}
 
 	/**
 	 * retourne le nombre de ligne supprimer
 	 * 
 	 * @return int le nombre de ligne retourner
 	 */
-	public int delete() {
+	public int delete(long id) {
 		Query query = EntityManagerHelper.getEntityManager()
 				.createQuery("DELETE FROM Sondage e WHERE e.type_sondage IN sondageDate");
 		return query.executeUpdate();
 	}
 
+	 /**supprime un sondage quelconque
+     * @param id du sondage
+     * */
+	public void deletesondage(long id) {
+		EntityManagerHelper.beginTransaction();
+		EntityManagerHelper.getEntityManager().remove(this.findById(id));
+		EntityManagerHelper.commit();
+	}
 	public List<Sondage> findAllSondage() {
 		return EntityManagerHelper.getEntityManager().createQuery("select n from Sondage as n ", Sondage.class)
 				.getResultList();
@@ -60,5 +71,5 @@ public class PropositionDateDao {
 		return EntityManagerHelper.getEntityManager()
 				.createQuery("select n from PropositionDate as n  ", PropositionDate.class).getResultList();
 	}
-
+   
 }

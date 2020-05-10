@@ -36,4 +36,13 @@ public interface ServiceMetierDoodle {
 	void addChoixforSondageDate(long id,String mail,ChoixParticipants choix);
 	void addReunionForSondageDate(long id, Reunion r);
 	Collection<Reunion>getAllreunion();
+	Collection<Sondage>getAllSondageForCreateur(String mail);
+	Collection<ChoixParticipants>getAllChoixforSondageDate(long id);
+	Collection<ChoixParticipants>getAllChoixforSondageLieu(long id);
+	Collection<Participants> getAllParticipantsForSondageDate(long id);
+	Collection<Participants> getAllParticipantsForSondageLieu(long id);
+	PropositionDate getSondageDate(long id);
+	void deleteSondageDateById(long idsondage);
+	void deleteChoixById(String mail, long idChoix);
+	
 }
