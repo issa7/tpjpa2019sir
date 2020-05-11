@@ -40,7 +40,7 @@ public class PropositionDateDao {
 
 	}
 	public Sondage findById(long id) {
-		return EntityManagerHelper.getEntityManager().find(Sondage.class, id);
+		return EntityManagerHelper.getEntityManager().find(PropositionDate.class, id);
 	}
 
 	/**

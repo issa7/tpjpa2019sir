@@ -55,6 +55,11 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 	private ChoixParticipantsDao choixDao = new ChoixParticipantsDao();
 	private ReunionDao reunion = new ReunionDao();
 
+	/**
+	 * create sondage de type de date
+	 * 
+	 * @param email du createur qui creer le sondage
+	 */
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -70,6 +75,11 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 		}
 	}
 
+	/**
+	 * get all createur
+	 * 
+	 * @return list of all sondage
+	 */
 	@GET
 	@Path("/user/all")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -78,6 +88,11 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 		return this.createur.findAll();
 	}
 
+	/**
+	 * create creator
+	 * 
+	 * @return creator who was create
+	 */
 	@POST
 	@Path("/createur/")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -87,6 +102,12 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 		return this.createur.save(U);
 	}
 
+	/**
+	 * get a creator
+	 * 
+	 * @param createurId
+	 * @return creator who was as the createurId in the param
+	 */
 	@GET
 	@Path("/Createur/{CreateurID}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -96,6 +117,12 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 
 	}
 
+	/**
+	 * Delete the creator by Id of Creator
+	 * 
+	 * @param creatorId
+	 * @return response if the createur is delete
+	 */
 	@DELETE
 	@Path("/Createur/delete/{CreateurID}")
 	public Response deleteCreateur(@PathParam("CreateurID") String mail) {
@@ -105,6 +132,12 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 		return Response.status(201).entity(result).build();
 	}
 
+	/**
+	 * Add the aliment of participant
+	 * 
+	 * @param mail of particpant
+	 *
+	 */
 	@POST
 	@Path("/participant/{mail}/addAliment")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -119,6 +152,11 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 		}
 	}
 
+	/**
+	 * add participant
+	 * 
+	 * @return participant who was create
+	 */
 	@POST
 	@Path("/participant/add")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -129,6 +167,11 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 		return this.participant.save(P);
 	}
 
+	/**
+	 * get all participant
+	 * 
+	 * @return list of all participant
+	 */
 	@GET
 	@Path("/participant/all")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -137,6 +180,11 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 		return this.participant.findAll();
 	}
 
+	/**
+	 * get all food preference
+	 * 
+	 * @return list of all food preference
+	 */
 	@GET
 	@Path("/alimentation/all")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -145,6 +193,11 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 		return this.Aliment.findAll();
 	}
 
+	/**
+	 * add allergies for a participant
+	 * 
+	 * @param mail of participant
+	 */
 	@POST
 	@Path("/participant/{mail}/addAllergies")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -160,6 +213,11 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 		}
 	}
 
+	/**
+	 * get all sondage
+	 * 
+	 * @return list of all sondage of type date
+	 */
 	@GET
 	@Path("/sondageDate/all")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -168,6 +226,11 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 		return this.sondageDate.findAllSondageDate();
 	}
 
+	/**
+	 * create the sondage date by createur
+	 * 
+	 * @param mail of createur
+	 */
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -183,6 +246,11 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 		}
 	}
 
+	/**
+	 * get all sondage of type lieu
+	 * 
+	 * @return list of all sondage of type date
+	 */
 	@GET
 	@Path("/sondagelieu/all")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -191,6 +259,11 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 		return this.sondageLieu.findAll();
 	}
 
+	/**
+	 * Add particpants in sondage of type date
+	 * 
+	 * @param idSondage of type date
+	 */
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -207,6 +280,11 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 		}
 	}
 
+	/**
+	 * Add date in sondage of type date
+	 * 
+	 * @param idSondage of type sondage date
+	 */
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -222,6 +300,11 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 		}
 	}
 
+	/**
+	 * Add lieu in sondage of type lieu
+	 * 
+	 * @param id of type sondage lieu
+	 */
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -237,6 +320,12 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 		}
 	}
 
+	/**
+	 * Add choix in sondage by participant
+	 * 
+	 * @param idSondage of type date
+	 * @param mail      of participant
+	 */
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -253,6 +342,12 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 		}
 	}
 
+	/**
+	 * Add reunion in sondageDate
+	 * 
+	 * @param idSondage of type date
+	 * 
+	 */
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -269,6 +364,11 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 		}
 	}
 
+	/**
+	 * get all reunion
+	 *
+	 * @return List of all reunion
+	 */
 	@GET
 	@Path("/reunion/all")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -277,6 +377,12 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 		return this.reunion.findAll();
 	}
 
+	/**
+	 * get all sondage of creator
+	 * 
+	 * @param mail of createur
+	 * @return List of all sondage of creator
+	 */
 	@SuppressWarnings("unchecked")
 	@GET
 	@Path("/createur/{mail}/reunions")
@@ -287,6 +393,11 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 		return EntityManagerHelper.getEntityManager().createQuery(req).setParameter("mail", mail).getResultList();
 	}
 
+	/**
+	 * get all choix of sondage
+	 *
+	 * @return List of all choix of sondagedate
+	 */
 	@SuppressWarnings("unchecked")
 	@GET
 	@Path("/SondageDate/{idSondageDate}/choix")
@@ -294,8 +405,10 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 	public Collection<ChoixParticipants> getAllChoixforSondageDate(@PathParam("idSondageDate") long id) {
 		// TODO Auto-generated method stub
 		String req = "SELECT n FROM PropositionDate r join r.participants p join p.choix n WHERE r.id = :idSondageDate";
-		return EntityManagerHelper.getEntityManager().createQuery(req).setParameter("idSondageDate", id).getResultList();
+		return EntityManagerHelper.getEntityManager().createQuery(req).setParameter("idSondageDate", id)
+				.getResultList();
 	}
+
 	@SuppressWarnings("unchecked")
 	@GET
 	@Path("/SondageLieu/{idSondagelieu}/choix")
@@ -303,8 +416,15 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 	public Collection<ChoixParticipants> getAllChoixforSondageLieu(@PathParam("idSondagelieu") long id) {
 		// TODO Auto-generated method stub
 		String req = "SELECT n FROM PropositionLieu r join r.participants p join p.choix n WHERE r.id = :idSondagelieu";
-		return EntityManagerHelper.getEntityManager().createQuery(req).setParameter("idSondagelieu", id).getResultList();
+		return EntityManagerHelper.getEntityManager().createQuery(req).setParameter("idSondagelieu", id)
+				.getResultList();
 	}
+
+	/**
+	 * get all Participant of sondageDate
+	 *
+	 * @return List of all Participant of sondageDate
+	 */
 	@SuppressWarnings("unchecked")
 	@GET
 	@Path("/SondageDate/{idSondageDate}/participants")
@@ -312,10 +432,15 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 	public Collection<Participants> getAllParticipantsForSondageDate(@PathParam("idSondageDate") long id) {
 		// TODO Auto-generated method stub
 		String req = "SELECT p FROM PropositionDate r join r.participants p WHERE r.id = :idSondageDate";
-		return EntityManagerHelper.getEntityManager().createQuery(req)
-				.setParameter("idSondageDate", id)
+		return EntityManagerHelper.getEntityManager().createQuery(req).setParameter("idSondageDate", id)
 				.getResultList();
 	}
+
+	/**
+	 * get all Participant of sondageLieu
+	 *
+	 * @return List of all Participant of sondageLieu
+	 */
 	@SuppressWarnings("unchecked")
 	@GET
 	@Path("/SondageLieu/{idSondagelieu}/participants")
@@ -323,11 +448,16 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 	public Collection<Participants> getAllParticipantsForSondageLieu(@PathParam("idSondagelieu") long id) {
 		// TODO Auto-generated method stub
 		String req = "SELECT p FROM PropositionLieu r join r.participants p WHERE r.id = :idSondagelieu";
-		return EntityManagerHelper.getEntityManager().createQuery(req)
-				.setParameter("idSondagelieu", id)
+		return EntityManagerHelper.getEntityManager().createQuery(req).setParameter("idSondagelieu", id)
 				.getResultList();
 	}
-    
+
+	/**
+	 * get sondageDate
+	 * 
+	 * @param idSondageDate
+	 * @return sondageDate of type PropositionDate
+	 */
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/SondageDate/{idSondageDate}")
@@ -335,56 +465,158 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 		// TODO Auto-generated method stub
 		String req = "SELECT r FROM PropositionDate r WHERE r.id = :idSondageDate";
 		return (PropositionDate) EntityManagerHelper.getEntityManager().createQuery(req)
-				.setParameter("idSondageDate", id)
-				.getSingleResult();
+				.setParameter("idSondageDate", id).getSingleResult();
 	}
+
+	/**
+	 * get sondageLieu
+	 * 
+	 * @param idSondageLieu
+	 * @return sondageDate of type PropositionDate
+	 */
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/SondageLieu/{idSondageLieu}")
+	public PropositionLieu getSondageLieu(@PathParam("idSondageLieu") long id) {
+		// TODO Auto-generated method stub
+		String req = "SELECT r FROM PropositionLieu r WHERE r.id = :idSondageDate";
+		return (PropositionLieu) EntityManagerHelper.getEntityManager().createQuery(req)
+				.setParameter("idSondageLieu", id).getSingleResult();
+	}
+
+	/**
+	 * delete sondageDate
+	 * 
+	 * @param idSondage
+	 *
+	 */
 	@DELETE
 	@Path("/SondageDate/delete/{idsondage}")
 	public void deleteSondageDateById(@PathParam("idsondage") long idsondage) {
 		// TODO Auto-generated method stub
 		String req = "SELECT r FROM PropositionDate r WHERE r.id = :idsondage";
 		PropositionDate p = (PropositionDate) EntityManagerHelper.getEntityManager().createQuery(req)
-				.setParameter("idsondage", idsondage)
-				.getSingleResult();
-		if(p != null) {
+				.setParameter("idsondage", idsondage).getSingleResult();
+		if (p != null) {
 			List<Participants> ps = p.getParticipants();
-			for(Participants pa : ps) {
-				pa.setSondage(null);;
+			for (Participants pa : ps) {
+				pa.setSondage(null);
+				;
 			}
-			this.sondageDate.deletesondage(idsondage);;
+			this.sondageDate.deletesondage(idsondage);
+			;
 		}
 	}
+
+	/**
+	 * delete SondageLieu by id
+	 * 
+	 * @param idSondage
+	 *
+	 */
+	@DELETE
+	@Path("/SondageLieu/delete/{idsondage}")
+	public void deleteSondageLieuById(@PathParam("idsondage") long idsondage) {
+		// TODO Auto-generated method stub
+		String req = "SELECT r FROM PropositionLieu r WHERE r.id = :idsondage";
+		PropositionLieu p = (PropositionLieu) EntityManagerHelper.getEntityManager().createQuery(req)
+				.setParameter("idsondage", idsondage).getSingleResult();
+		if (p != null) {
+			List<Participants> ps = p.getParticipants();
+			for (Participants pa : ps) {
+				pa.setSondage(null);
+				;
+			}
+			this.sondageLieu.deletesondage(idsondage);
+			;
+		}
+	}
+
+	/**
+	 * add choix by participant in the sondage
+	 * 
+	 * @param idchoix
+	 * @param mail
+	 *
+	 */
 	@DELETE
 	@Path("participant/{mail}/choix/delete/{idChoix}")
-	public void deleteChoixById(@PathParam("mail") String mail, @PathParam("idChoix")long idChoix) {
+	public void deleteChoixById(@PathParam("mail") String mail, @PathParam("idChoix") long idChoix) {
 		// TODO Auto-generated method stub
 		String req = "SELECT p FROM Participants r join r.choix p WHERE r.mail = :mail and p.idChoix= :idChoix";
 		ChoixParticipants cp = (ChoixParticipants) EntityManagerHelper.getEntityManager().createQuery(req)
 				.setParameter("idChoix", idChoix).setParameter("mail", mail).getSingleResult();
 		if (cp != null) {
-			
+
 			Participants participant = cp.getParticipant();
-			  participant.setChoix(null);
-			this.choixDao.delete(idChoix);;
+			participant.setChoix(null);
+			this.choixDao.delete(idChoix);
+			;
 		}
 	}
+
+	/**
+	 * delete participant in the sondagedate
+	 * 
+	 * @param idSondageDate
+	 * @param mail
+	 *
+	 */
 	@DELETE
 	@Path("/participant/SondageDate/{idSondageDate}/participant/{mail}")
-	public void deleteParticipantByMailForSondageDate(@PathParam("idSondageDate")long idSondageDate,@PathParam("mail") String mail) {
+	public void deleteParticipantByMailForSondageDate(@PathParam("idSondageDate") long idSondageDate,
+			@PathParam("mail") String mail) {
 		// TODO Auto-generated method stub
 		String req = "SELECT p FROM PropositionDate r join r.participants p WHERE p.mail = :mail and r.id= :idSondageDate";
-		
+
 		Participants cp = (Participants) EntityManagerHelper.getEntityManager().createQuery(req)
 				.setParameter("idSondageDate", idSondageDate).setParameter("mail", mail).getSingleResult();
-        if (cp != null) {
-			
+		if (cp != null) {
+
 			PropositionDate sondageDate = (PropositionDate) cp.getSondage();
-			 sondageDate.setParticipants(null);
+			sondageDate.setParticipants(null);
 			this.participant.deleteParticipants(mail);
-		}  
+		}
+	}
+//	/** Add choix in sondage by participant
+//	 * @param idSondage of type date
+//	 * @param mail of participant
+//	 */
+//	@POST
+//	@Produces(MediaType.APPLICATION_JSON)
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	@Path("/sondageLieu/{idsondageLieu}/participant/{mail}/choix")
+//	public void addChoixforSondagelieu(long id, String mail, ChoixParticipants choix) {
+//		// TODO Auto-generated method stub
+//		String req = "SELECT p FROM Sondage r join r.participants p WHERE r.id = :idsondage AND p.mail = :mail";
+//		Participants p = (Participants) EntityManagerHelper.getEntityManager().createQuery(req)
+//				.setParameter("idsondage", id).setParameter("mail", mail).getSingleResult();
+//		if (p != null) {
+//			choix.setParticipant(p);
+//			this.choixDao.save(choix);
+//		}
+//	}
+
+	/**
+	 * delete participant in the sondagedate
+	 * 
+	 * @param idSondageDate
+	 * @param mail
+	 *
+	 */
+	@DELETE
+	@Path("/participant/SondageLieu/{idSondageLieu}/participant/{mail}")
+	public void deleteParticipantByMailForSondageLieu(long idSondagelieu, String mail) {
+		// TODO Auto-generated method stub
+		String req = "SELECT p FROM PropositionLieu r join r.participants p WHERE p.mail = :mail and r.id= :idSondageLieu";
+		Participants cp = (Participants) EntityManagerHelper.getEntityManager().createQuery(req)
+				.setParameter("id", idSondagelieu).setParameter("mail", mail).getSingleResult();
+		if (cp != null) {
+
+			PropositionLieu sondagelieu = (PropositionLieu) cp.getSondage();
+			sondagelieu.setParticipants(null);
+			this.participant.deleteParticipants(mail);
+		}
 	}
 
-	
-	
-	
 }

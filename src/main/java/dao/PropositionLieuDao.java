@@ -39,7 +39,15 @@ public class PropositionLieuDao {
 		return P;
 
 	}
-
+	public Sondage findById(long id) {
+		return EntityManagerHelper.getEntityManager().find(PropositionLieu.class, id);
+	}
+	
+	public void deletesondage(long id) {
+		EntityManagerHelper.beginTransaction();
+		EntityManagerHelper.getEntityManager().remove(this.findById(id));
+		EntityManagerHelper.commit();
+	}
 	/**
 	 * retourne le nombre de ligne supprimer
 	 * 

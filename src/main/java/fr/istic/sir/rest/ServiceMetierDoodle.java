@@ -34,6 +34,7 @@ public interface ServiceMetierDoodle {
 	void addDateSondageForPropositionDate(long id, DateSondage date);
 	void addLieuSondageForPropositionLieu(long id, LieuSondage lieu);
 	void addChoixforSondageDate(long id,String mail,ChoixParticipants choix);
+	//void addChoixforSondagelieu(long id,String mail,ChoixParticipants choix);
 	void addReunionForSondageDate(long id, Reunion r);
 	Collection<Reunion>getAllreunion();
 	Collection<Sondage>getAllSondageForCreateur(String mail);
@@ -42,8 +43,11 @@ public interface ServiceMetierDoodle {
 	Collection<Participants> getAllParticipantsForSondageDate(long id);
 	Collection<Participants> getAllParticipantsForSondageLieu(long id);
 	PropositionDate getSondageDate(long id);
+	PropositionLieu getSondageLieu(long id);
 	void deleteSondageDateById(long idsondage);
+	void deleteSondageLieuById(long idsondage);
 	void deleteChoixById(String mail, long idChoix);
 	void deleteParticipantByMailForSondageDate(long idSondageDate,String mail);
+	void deleteParticipantByMailForSondageLieu(long idSondagelieu,String mail);
 	
 }
