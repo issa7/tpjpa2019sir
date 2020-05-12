@@ -38,8 +38,11 @@ import domain.Reunion;
 import domain.Sondage;
 import jpa.EntityManagerHelper;
 
+/**
+ * @author KEITA
+ *
+ */
 @Path("doodle")
-
 public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 
 	private static final Logger logger = Logger.getLogger(ServiceMetierDoodleImpl.class.getName());
@@ -341,7 +344,45 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 			this.choixDao.save(choix);
 		}
 	}
-
+	
+	/**
+	 * get prference food by mail of participant
+	 * 
+	 * @param idSondage 
+	 * @param mail  of participant
+	 * @return List all food of participant
+	 */
+	@SuppressWarnings("unchecked")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/sondage/{idsondage}/participant/{mail}/alimention")
+	public Collection<Alimentation> getAlimentationByMailForSondage(@PathParam("idsondage")long id, @PathParam("mail") String mail) {
+		// TODO Auto-generated method stub
+		String req = "SELECT p.preferenceAliment FROM Sondage r join r.participants p  WHERE r.id = :idsondage AND p.mail = :mail";
+		return  EntityManagerHelper.getEntityManager().createQuery(req)
+				.setParameter("idsondage", id).setParameter("mail", mail).getResultList();
+	}
+	
+	
+	/**
+	 * get allergie food by mail of participant
+	 * 
+	 * @param idSondage 
+	 * @param mail  of participant
+	 * @return List all allergies of participant
+	 */
+	@SuppressWarnings("unchecked")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/sondage/{idsondage}/participant/{mail}/allergies")
+	public Collection<Allergies> getAllergiesByMailForSondage(@PathParam("idsondage") long id, @PathParam("mail") String mail) {
+		// TODO Auto-generated method stub
+		String req = "SELECT p.allergie FROM Sondage r join r.participants p  WHERE r.id = :idsondage AND p.mail = :mail";
+		return  EntityManagerHelper.getEntityManager().createQuery(req)
+				.setParameter("idsondage", id).setParameter("mail", mail).getResultList();
+	}
 	/**
 	 * Add reunion in sondageDate
 	 * 
@@ -578,6 +619,8 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 			this.participant.deleteParticipants(mail);
 		}
 	}
+	
+	
 //	/** Add choix in sondage by participant
 //	 * @param idSondage of type date
 //	 * @param mail of participant
@@ -618,5 +661,9 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 			this.participant.deleteParticipants(mail);
 		}
 	}
+
+	
+
+	
 
 }

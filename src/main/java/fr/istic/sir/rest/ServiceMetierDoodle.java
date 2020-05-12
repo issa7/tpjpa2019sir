@@ -16,6 +16,10 @@ import domain.PropositionLieu;
 import domain.Reunion;
 import domain.Sondage;
 
+/**
+ * @author KEITA
+ *
+ */
 public interface ServiceMetierDoodle {
 	void createSondage(String mail, PropositionDate s);
 	Collection<Createur> getAllCreateurs();
@@ -49,5 +53,6 @@ public interface ServiceMetierDoodle {
 	void deleteChoixById(String mail, long idChoix);
 	void deleteParticipantByMailForSondageDate(long idSondageDate,String mail);
 	void deleteParticipantByMailForSondageLieu(long idSondagelieu,String mail);
-	
+	Collection<Alimentation>getAlimentationByMailForSondage(long id,String mail);
+	Collection<Allergies>getAllergiesByMailForSondage(long id,String mail);
 }

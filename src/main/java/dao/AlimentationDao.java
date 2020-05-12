@@ -13,8 +13,8 @@ public class AlimentationDao {
 
 	
 	/**
-	 * @param id
-	 * @return
+	 * @param id of preference food
+	 * @return preference food
 	 */
 	public Alimentation findById(Long id) {
 		return EntityManagerHelper.getEntityManager().find(Alimentation.class, id);
@@ -28,8 +28,8 @@ public class AlimentationDao {
 	}
 	
 	/**
-	 * @param A
-	 * @return
+	 * @param A preference food
+	 * @return preference food
 	 */
 	public Alimentation save(Alimentation A) {
 		EntityManagerHelper.beginTransaction();
@@ -44,7 +44,7 @@ public class AlimentationDao {
 		return A;
 	}
 	
-	/**
+	/**delete preference food
 	 * @param id
 	 */
 	public void delete(Long id) {
@@ -52,8 +52,8 @@ public class AlimentationDao {
 		EntityManagerHelper.getEntityManager().remove(this.findById(id));
 		EntityManagerHelper.commit();
 	}
-	/**
-	 * @return
+	/** 
+	 * @return  all preference food
 	 */
 	public List<Alimentation> findAll() {
 		return EntityManagerHelper.getEntityManager().createQuery("select a from Alimentation as a", Alimentation.class)
