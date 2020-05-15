@@ -15,3 +15,8 @@ cette couche permet definir les service notre API propose. nous avons utilisé l
 
 ## Diagramme de classe de la partie JPA 
 ![Diagramme de classe](diagrammeClasse.gif)
+
+# licence du projet
+The software developed is open source software.
+# Installation
+git clone 
