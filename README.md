@@ -42,5 +42,6 @@ Votre projet est configuré.
  pour des raisons d'utilisation des ports 8080 bous avons configuer le port tomcat à :
  ### port du serveur backend : localhost:8083/
  
-
+### Documentation Api
+il existe des fichiers en json dans le dossier documentation Api, ces fichiers peuvent etre importées dans postman pour tester notre Api
 
