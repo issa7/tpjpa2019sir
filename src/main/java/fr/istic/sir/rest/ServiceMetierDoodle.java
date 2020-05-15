@@ -25,6 +25,7 @@ public interface ServiceMetierDoodle {
 	Collection<Createur> getAllCreateurs();
 	Createur createCreateur(Createur U);
 	Createur getCreateur(String mail);
+	Participants getParticipants(String mail);
 	Response deleteCreateur(String mail);
 	void addAlimentation(String mail,Alimentation A);
 	void addAllergie(String Mail,Allergies allergie);

@@ -122,6 +122,13 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 		return this.createur.findCreateurByMail(mail);
 
 	}
+	@GET
+	@Path("/Participant/{idparticipant}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Participants getParticipants(@PathParam("idparticipant")String mail) {
+		// TODO Auto-generated method stub
+		return this.participant.findByMailParticipants(mail);
+	}
 
 	/**
 	 * Delete the creator by Id of Creator
@@ -648,6 +655,7 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 		}
 	}
 
+	
 	
 
 	
