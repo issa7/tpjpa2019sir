@@ -19,4 +19,16 @@ cette couche permet definir les service notre API propose. nous avons utilisé l
 # licence du projet
 The software developed is open source software.
 # Installation
-git clone 
+git clone https://github.com/issa7/tpjpa2019sir.git
+
+
+## Pour eclipse 4.X
+Depuis eclipse 4.X, le support de maven s’est amélioré. Pour importer votre projet. File -> import -> maven -> existing maven project.
+Votre projet est configuré.
+
+## Démarrage de la base de données
+ Vous trouverez là le script de démarrage de la base de données (run-hsqldb-server.sh) et le script du démarrage du Manager (show-hsqldb.sh). Lancez le système de base de données, puis le Manager. Connectez vous à la base de données (login : sa – et pas de mot de passe : -- URL de connexion : jdbc:hsqldb:hsql://localhost/ ).
+ 
+ 
+
+
