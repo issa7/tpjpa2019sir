@@ -14,4 +14,4 @@ d'abstraire la facon dont les données sont stockées au niveau des objets metie
 cette couche permet definir les service notre API propose. nous avons utilisé l'APi JAX RS et le Framework Jersey qui permet de definir les service web selon l'architecture REST 
 
 ## Diagramme de classe de la partie JPA 
-![Diagramme de classe](diagrammeClasse.jpg)
+![Diagramme de classe](diagrammeClasse.gif)
