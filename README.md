@@ -45,3 +45,8 @@ Votre projet est configuré.
 ### Documentation Api
 il existe des fichiers en json dans le dossier documentation Api, ces fichiers peuvent etre importées dans postman pour tester notre Api
 
+# authors
+
+### Issa KEITA
+### Seydou BAKAYOKO
+
