@@ -632,6 +632,7 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 	 * @param mail
 	 *
 	 */
+	
 	@DELETE
 	@Path("/participant/SondageLieu/{idSondageLieu}/participant/{mail}")
 	public void deleteParticipantByMailForSondageLieu(long idSondagelieu, String mail) {
