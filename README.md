@@ -31,7 +31,7 @@ Votre projet est configuré.
  
  ### mysql 
  mysql a été configurer dans le fichier persistence.xml 
- la base de données est dans le dossiers sources 
+ la base de données est dans le dossiers bd_mysql
  
  
  ## Executer le backend
