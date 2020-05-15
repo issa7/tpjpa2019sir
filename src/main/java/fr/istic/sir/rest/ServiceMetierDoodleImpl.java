@@ -1,5 +1,6 @@
 package fr.istic.sir.rest;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.logging.Logger;
@@ -43,6 +44,8 @@ import jpa.EntityManagerHelper;
  *
  */
 @Path("doodle")
+@Produces("application/json")
+@Consumes("application/json")
 public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 
 	private static final Logger logger = Logger.getLogger(ServiceMetierDoodleImpl.class.getName());
@@ -466,15 +469,16 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 	 *
 	 * @return List of all Participant of sondageDate
 	 */
-	@SuppressWarnings("unchecked")
+
 	@GET
-	@Path("/SondageDate/{idSondageDate}/participants")
+	@Path("/SondageDate/{id}/participantsForSondage")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Collection<Participants> getAllParticipantsForSondageDate(@PathParam("idSondageDate") long id) {
+	public Collection<Participants> getAllParticipantsForSondageDate(@PathParam("id") long id) {
 		// TODO Auto-generated method stub
-		String req = "SELECT p FROM PropositionDate r join r.participants p WHERE r.id = :idSondageDate";
-		return EntityManagerHelper.getEntityManager().createQuery(req).setParameter("idSondageDate", id)
+		String req = "SELECT p FROM PropositionDate r join r.participants p WHERE r.id = :id";
+		ArrayList<Participants> p =(ArrayList<Participants>)EntityManagerHelper.getEntityManager().createQuery(req).setParameter("id", id)
 				.getResultList();
+		return p;
 	}
 
 	/**
@@ -619,26 +623,7 @@ public class ServiceMetierDoodleImpl implements ServiceMetierDoodle {
 			this.participant.deleteParticipants(mail);
 		}
 	}
-	
-	
-//	/** Add choix in sondage by participant
-//	 * @param idSondage of type date
-//	 * @param mail of participant
-//	 */
-//	@POST
-//	@Produces(MediaType.APPLICATION_JSON)
-//	@Consumes(MediaType.APPLICATION_JSON)
-//	@Path("/sondageLieu/{idsondageLieu}/participant/{mail}/choix")
-//	public void addChoixforSondagelieu(long id, String mail, ChoixParticipants choix) {
-//		// TODO Auto-generated method stub
-//		String req = "SELECT p FROM Sondage r join r.participants p WHERE r.id = :idsondage AND p.mail = :mail";
-//		Participants p = (Participants) EntityManagerHelper.getEntityManager().createQuery(req)
-//				.setParameter("idsondage", id).setParameter("mail", mail).getSingleResult();
-//		if (p != null) {
-//			choix.setParticipant(p);
-//			this.choixDao.save(choix);
-//		}
-//	}
+
 
 	/**
 	 * delete participant in the sondagedate
