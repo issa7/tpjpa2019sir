@@ -1,0 +1,875 @@
+{
+	"info": {
+		"_postman_id": "4cc672be-d626-44d1-bc92-900d7b19152e",
+		"name": "createurDooldle",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": " http://localhost:8083/rest/doodle/user/all",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {          \r\n    \"personne\":\"CZeOH8IhvNTfYerYuymW\",\r\n    \"starting_date\":\"2018-09-24\",\r\n    \"end_date\":\"\",\r\n    \"amount\":\"500\",\r\n    \"devise\": \"\",\r\n    \"provenance\":\"\"\r\n }"
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/Createur/issakeita@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"Createur",
+						"issakeita@gmail.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/createur/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"libellepreferenceplimentation\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/alimention/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"alimention",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": " http://localhost:8083/rest/doodle/Createur/issakeita@gmail.com",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {          \r\n    \"personne\":\"CZeOH8IhvNTfYerYuymW\",\r\n    \"starting_date\":\"2018-09-24\",\r\n    \"end_date\":\"\",\r\n    \"amount\":\"500\",\r\n    \"devise\": \"\",\r\n    \"provenance\":\"\"\r\n }"
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/Createur/issakeita@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"Createur",
+						"issakeita@gmail.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": " http://localhost:8083/rest/doodle/Createur/delete/issakeita@gmail.com",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {          \r\n    \"personne\":\"CZeOH8IhvNTfYerYuymW\",\r\n    \"starting_date\":\"2018-09-24\",\r\n    \"end_date\":\"\",\r\n    \"amount\":\"500\",\r\n    \"devise\": \"\",\r\n    \"provenance\":\"\"\r\n }"
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/Createur/delete/issakeita@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"Createur",
+						"delete",
+						"issakeita@gmail.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/createur/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"mail\":\"issakeita@gmail.com\",\n\"nom\":\"keita\",\n\"prenom\":\"issa\",\n\"motpass\":\"issakeita\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/participant/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"participant",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/sondageDate/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/sondageDate/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"sondageDate",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/sondageDate/all",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"mail\":\"b@gmail.com\",\n\"nom\":\"keita\",\n\"prenom\":\"issa\",\n\"motpass\":\"issakeita\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/sondageDate/1/participant",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"sondageDate",
+						"1",
+						"participant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/createur/a@gmail.com/sondageDate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"nomSondage\":\"sondagetype7\",\n\"date1\":  [{\"date\":\"2020-02-12\"},{\"date\":\"2020-02-13\"},{\"date\":\"2020-02-13\"}]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/createur/a@gmail.com/sondageDate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"createur",
+						"a@gmail.com",
+						"sondageDate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/createur/a@gmail.com/sondageDate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/sondageDate/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"sondageDate",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/sondageDate/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/sondageDate/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"sondageDate",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/sondageDate/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/sondageDate/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"sondageDate",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/createur/a@gmail.com/sondageDate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"nomSondage\":\"sondagetype7\",\n\"date1\":  [{\"date\":\"2020-02-12\"},{\"date\":\"2020-02-13\"},{\"date\":\"2020-02-13\"}]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/createur/a@gmail.com/sondageDate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"createur",
+						"a@gmail.com",
+						"sondageDate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/sondageDate/1/participant/o@gmail.com/choix",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"choix\":\"2020-09-02\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/sondageDate/1/participant/o@gmail.com/choix",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"sondageDate",
+						"1",
+						"participant",
+						"o@gmail.com",
+						"choix"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/sondageDate/1/datesSondage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"date\": \"2020-09-02\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/sondageDate/1/datesSondage",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"sondageDate",
+						"1",
+						"datesSondage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/sondageDate/1/participant",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"intitule\":\"testreunion\",\n\"resume\":\"resume\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/sondageDate/1/reunion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"sondageDate",
+						"1",
+						"reunion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/sondageDate/1/reunion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"intitule\":\"testreunion\",\n\"resume\":\"resume\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/sondageDate/1/reunion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"sondageDate",
+						"1",
+						"reunion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/createur/a@gmail.com/reunions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/createur/a@gmail.com/reunions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"createur",
+						"a@gmail.com",
+						"reunions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/sondageDate/1/reunion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"intitule\":\"testreunion\",\n\"resume\":\"resume\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/sondageDate/1/reunion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"sondageDate",
+						"1",
+						"reunion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/sondageDate/1/datesSondage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"date\": \"2020-09-02\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/sondageDate/1/datesSondage",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"sondageDate",
+						"1",
+						"datesSondage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/sondageDate/1/participant/o@gmail.com/choix",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"choix\":\"2020-03-02\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/sondageDate/1/participant/c@gmail.com/choix",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"sondageDate",
+						"1",
+						"participant",
+						"c@gmail.com",
+						"choix"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/createur/a@gmail.com/sondageDate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"nomSondage\":\"sondagetype23\",\n\"date1\":  [{\"date\":\"2020-02-12\"},{\"date\":\"2020-02-13\"},{\"date\":\"2020-02-13\"}]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/createur/a@gmail.com/sondageDate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"createur",
+						"a@gmail.com",
+						"sondageDate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/participant/SondageDate/1/participant/c@gmail.com",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"mail\": \"b@gmail.com\",\n            \"nom\": \"keita\",\n            \"prenom\": \"issa\",\n            \"motPass\": null\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/participant/SondageDate/1/participant/c@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"participant",
+						"SondageDate",
+						"1",
+						"participant",
+						"c@gmail.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/participant/c@gmail.com/choix/delete/1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"mail\": \"b@gmail.com\",\n            \"nom\": \"keita\",\n            \"prenom\": \"issa\",\n            \"motPass\": null\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/participant/c@gmail.com/choix/delete/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"participant",
+						"c@gmail.com",
+						"choix",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/SondageDate/delete/1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"mail\": \"b@gmail.com\",\n            \"nom\": \"keita\",\n            \"prenom\": \"issa\",\n            \"motPass\": null\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/SondageDate/delete/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"SondageDate",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/SondageDate/1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"mail\": \"b@gmail.com\",\n            \"nom\": \"keita\",\n            \"prenom\": \"issa\",\n            \"motPass\": null\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/SondageDate/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"SondageDate",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/SondageDate/1/participants",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"mail\": \"b@gmail.com\",\n            \"nom\": \"keita\",\n            \"prenom\": \"issa\",\n            \"motPass\": null\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/SondageDate/1/participants",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"SondageDate",
+						"1",
+						"participants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/Sondage/1/choix",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"mail\": \"b@gmail.com\",\n            \"nom\": \"keita\",\n            \"prenom\": \"issa\",\n            \"motPass\": null\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/Sondage/1/choix",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"Sondage",
+						"1",
+						"choix"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/alimentation/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/alimentation/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"alimentation",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/sondageDate/1/participant/c@gmail.com/alimention",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/sondageDate/1/participant/c@gmail.com/alimention",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"sondageDate",
+						"1",
+						"participant",
+						"c@gmail.com",
+						"alimention"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,207 @@
+{
+	"info": {
+		"_postman_id": "b9eadc94-c767-4e0b-9d21-d843548c7bff",
+		"name": "participantDoodleApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8083/rest/doodle/createur/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"mail\":\"issakeita@gmail.com\",\n\"nom\":\"keita\",\n\"prenom\":\"issa\",\n\"motpass\":\"issakeita\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/participant/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"participant",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/createur/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"mail\":\"issakeita105@gmail.com\",\n\"nom\":\"keita\",\n\"prenom\":\"issa\",\n\"motpass\":\"issakeita\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/participant/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"participant",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/participant/all",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"mail\":\"issakeita105@gmail.com\",\n\"nom\":\"keita\",\n\"prenom\":\"issa\",\n\"motpass\":\"issakeita\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/participant/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"participant",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/participant/add",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"mail\":\"o@gmail.com\",\n\"nom\":\"keita\",\n\"prenom\":\"issa\",\n\"motpass\":\"issakeita\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/participant/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"participant",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/participant/b@gmail.com/addAliment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"libellePreferenceAlimentation\":\"pain au mil\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/participant/b@gmail.com/addAliment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"participant",
+						"b@gmail.com",
+						"addAliment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8083/rest/doodle/participant/a@gmail.com/addAllergies",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"nomSondage\":\"sondageDate\",\n\"lieu\":\"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/rest/doodle/createur/a@gmail.com/sondage",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"rest",
+						"doodle",
+						"createur",
+						"a@gmail.com",
+						"sondage"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
