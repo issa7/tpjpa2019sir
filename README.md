@@ -29,6 +29,9 @@ Votre projet est configuré.
 ## Démarrage de la base de données
  Vous trouverez là le script de démarrage de la base de données (run-hsqldb-server.sh) et le script du démarrage du Manager (show-hsqldb.sh). Lancez le système de base de données, puis le Manager. Connectez vous à la base de données (login : sa – et pas de mot de passe : -- URL de connexion : jdbc:hsqldb:hsql://localhost/ ).
  
+ ## Executer le backend
+ faire maven build en ligne de commande 
+ sous eclipse faire run -> maven build ... et saisir tomcat7:run dans le formulaire goals qui s'affiche une fois cliquer sur maven build
  
 
 
